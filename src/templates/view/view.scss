@@ -1,0 +1,107 @@
+body
+{
+    width: 720px;
+    height: 1280px;
+    margin: 0px;
+
+    background: rgb(31, 31, 31);
+}
+
+.content
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgb(233, 233, 233);
+
+    .shift
+    {
+        width: auto;
+        height: auto;
+        background: rgba(0,0,0,0.1);
+        border: 1px black solid;
+        padding: 0px 5px 0px 5px;
+        
+        .title
+        {
+            padding: 5px;
+            text-align: center;
+        }
+
+        .user
+        {
+            margin-bottom: 10px;
+
+            width: auto;
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+
+            overflow: hidden;
+
+            grid-template-areas:
+            'name task'
+            'time task';
+
+            background: rgba(255, 255, 255, 0.1);
+
+            border-radius: 6px;
+
+            box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.3), inset -1px -1px 1px rgba(0, 0, 0, 0.5), 0px 1px 3px rgba(0, 0, 0, 0.2);
+
+            .username
+            {
+                padding: 5px;
+                padding-left: 8px;
+                padding-bottom: 4px;
+
+                grid-area: name;
+
+                border-bottom: 1px solid rgba(0,0,0,0.5);
+                border-right: 1px solid rgba(0,0,0,0.5);
+
+                background: rgba(0,0,0,0.2);
+            }
+
+            .usertask 
+            {
+                padding: 5px;
+                padding-left: 8px;
+                padding-top: 2px;
+
+                grid-area: task;
+
+            }
+
+            .usertime 
+            {
+                display: grid;
+                grid-template-columns: 1fr 0.1fr 1fr;
+                grid-template-rows: 1fr;
+
+                padding: 5px;
+                padding-right: 12px;
+                padding-top: 4px;
+
+                grid-area: time;
+
+                border-right: 1px solid rgba(0,0,0,0.5);
+
+                .timestart
+                {
+                    padding-left: 1px;
+                }
+
+                .timeend
+                {
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+}

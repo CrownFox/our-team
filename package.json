@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "us-today",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Our Team - A Daily Tracker",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -18,5 +18,11 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^16.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "jquery": "^3.6.0",
+    "pug": "^3.0.2"
   }
 }
