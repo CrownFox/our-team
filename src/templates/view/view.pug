@@ -1,31 +1,25 @@
+mixin user(data)
+    .user
+        .username #{data.name}
+        .usertask #{data.task}
+        .usertime
+            .timestart #{data.timestart}
+            .spacer -
+            .timeend #{data.timeend}
+
 html
     head 
         title Our Team
         link(href="./view/style.css", rel="stylesheet") 
-    body 
+    body
+        script(src="/resources/jquery.js")
+        script(src="/view/view.js")
         .content 
             .shift.first-shift
                 .title First Shift
-                .user.test
-                    .username Kassidy
-                    .usertask Carts/Cull
-                    .usertime
-                        .timestart 4:00 AM 
-                        .spacer -
-                        .timeend 1:00 PM
-                .user.test
-                    .username Ornery
-                    .usertask Carts/Cull/Disposal
-                    .usertime
-                        .timestart 4:00 AM 
-                        .spacer -
-                        .timeend 1:00 PM
+                //each val in data.first_shift 
+                    +user(val)
             .shift.second-shift
                 .title Second Shift
-                .user.test
-                    .username Ron
-                    .usertask Produce
-                    .usertime
-                        .timestart 1:00 PM 
-                        .spacer -
-                        .timeend 10:00 PM
+                //each val in data.second_shift
+                    +user(val)

@@ -8,6 +8,11 @@ const PORT = 80
 const pug = require('pug')
 const path = require('path')
 
+var libs = {
+    user: require('../../lib/lib_user'),
+    view: require('../../lib/lib_view')
+}
+
 var template = {
     view: pug.compileFile(path.join(__dirname, '../../templates/view/view.pug'))
 }
@@ -19,14 +24,13 @@ app.get('/', (req, res) =>
     res.send('Success')
 })
 
-app.get('/view', (req, res) =>
-{
-    res.send(template.view())
-})
+app.use('/users', libs.user)
 
-app.get('/view/style.css', (req, res) =>
+app.use('/view', libs.view)
+
+app.get('/resources/jquery.js', (req, res) =>
 {
-    res.sendFile(path.join(__dirname, '../../templates/view/view.css'))
+    res.sendFile(path.join(__dirname, '../../lib/jquery-3.6.0.min.js'))
 })
 
 app.listen(PORT, () =>
