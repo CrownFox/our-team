@@ -1,8 +1,9 @@
 body {
-  width: 720px;
-  height: 1280px;
+  width: 980px;
+  height: 1400px;
   margin: 0px;
   background: #1f1f1f;
+  font-size: 20px;
 }
 
 .content {
