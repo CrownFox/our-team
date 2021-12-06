@@ -1,0 +1,15 @@
+html
+    head 
+        title Our Team - Admin Panel - Login
+        link(href="/resources/admin/login/style.css", rel="stylesheet")
+        script(src="/resources/jquery.js")
+        script(src="/resources/admin/login/login.js") 
+    body
+        .container 
+            .title Admin Login 
+            .username-text Username
+            input(type='text')#username
+            .password-text Password
+            input(type='password')#password
+            #submit-button(tabindex="0") Submit
+        .error-section

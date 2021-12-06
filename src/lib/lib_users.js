@@ -3,7 +3,7 @@ var user = express.Router()
 var pug = require('pug')
 
 var template = {
-    user: pug.compileFile(path.join(__dirname, '../templates/user/user.pug'))
+    user: pug.compileFile(path.join(__dirname, '../templates/users/users.pug'))
 }
 
 var users = {
@@ -12,14 +12,16 @@ var users = {
         task: 'Carts/Cull\nFill Ambients',
         timestart: '4:00 AM',
         timeend: '1:00 PM',
-        shift: 'First'
+        shift: 'First',
+        off: ['Sunday', 'Monday']
     },
     'Ron':{
         name: 'Ron',
         task: 'Produce',
         timestart: '1:00 PM',
         timeend: '10:00 PM',
-        shift: 'Second'
+        shift: 'Second',
+        off: ['Wednesday', 'Thursday']
     }
 }
 

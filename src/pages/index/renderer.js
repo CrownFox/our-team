@@ -9,8 +9,10 @@ const pug = require('pug')
 const path = require('path')
 
 var libs = {
-    user: require('../../lib/lib_user'),
-    view: require('../../lib/lib_view')
+    users: require('../../lib/lib_users'),
+    view: require('../../lib/lib_view'),
+    admin: require('../../lib/lib_admin'),
+    resources: require('../../lib/lib_resources')
 }
 
 var template = {
@@ -24,14 +26,13 @@ app.get('/', (req, res) =>
     res.send('Success')
 })
 
-app.use('/users', libs.user)
+app.use('/users', libs.users)
 
 app.use('/view', libs.view)
 
-app.get('/resources/jquery.js', (req, res) =>
-{
-    res.sendFile(path.join(__dirname, '../../lib/jquery-3.6.0.min.js'))
-})
+app.use('/admin', libs.admin)
+
+app.use('/resources', libs.resources)
 
 app.listen(PORT, () =>
 {

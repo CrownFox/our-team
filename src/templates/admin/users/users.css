@@ -1,0 +1,153 @@
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  background: #1e1e1e;
+  color: white;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 980px;
+  height: 100%;
+  background: #3c3c3c;
+}
+
+body .container .top-bar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+body .container .top-bar .tab-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 5px;
+  padding: 5px;
+}
+
+body .container .top-bar .tab-buttons .tab-button {
+  position: relative;
+  bottom: -6px;
+  background: #3c3c3c;
+  padding: 5px;
+  border: 1px solid #1e1e1e;
+  border-radius: 5px 5px 0px 0px;
+}
+
+body .container .top-bar .tab-buttons .tab-button.active {
+  border-bottom: 0px;
+}
+
+body .container .top-bar .login-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 5px;
+  margin-left: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+body .container .top-bar .login-info .button {
+  margin: 2px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+body .container .content {
+  width: 950px;
+  margin: 5px;
+  padding-top: 0px;
+  overflow: auto;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background: #505050;
+  border: 1px solid black;
+}
+
+body .container .content .labels {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35px 140px 140px 140px 140px 200px 155px;
+      grid-template-columns: 35px 140px 140px 140px 140px 200px 155px;
+}
+
+body .container .content .labels .label {
+  padding-left: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+body .container .content .labels .label + .label {
+  border-left: 1px solid black;
+}
+
+body .container .content .items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .container .content .items .item {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35px 140px 140px 140px 140px 200px 155px;
+      grid-template-columns: 35px 140px 140px 140px 140px 200px 155px;
+}
+
+body .container .content .items .item .item-column {
+  padding-left: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+body .container .content .items .item .item-column + .item-column {
+  border-left: 1px solid black;
+}
+
+body .container .content .items .item:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.1);
+}
+/*# sourceMappingURL=users.css.map */

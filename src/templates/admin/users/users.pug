@@ -1,0 +1,49 @@
+html 
+    head 
+        title Our Team - Admin Panel - Users
+        link(href='/admin/users/style.css' rel='stylesheet') 
+        //script(src="/resources/jquery.js")
+        //script(src="/admin/admin.js") 
+    body 
+        .container
+            .top-bar 
+                .tab-buttons
+                    #top-users-button.active.tab-button Users 
+                    #top-days-button.tab-button Daily Overrides 
+                .login-info
+                    #login-username #{username}
+                    #logout-button.button Logout
+            .content
+                .labels
+                    #label-id.label id 
+                    #label-display.label Display Name 
+                    #label-first-name.label First Name 
+                    #label-last-name.label Last Name
+                    #label-shift.label Shift
+                    #label-days-off.label Days Off 
+                    #label-task.label Preferred Task
+                .items
+                    #testitem.item 
+                        .item-id.item-column 0
+                        .item-display.item-column Kassidy 
+                        .item-first-name.item-column Kassidy
+                        .item-last-name.item-column Lechner
+                        .item-shift.item-column First
+                        .item-days-off.item-column Sunday;Monday
+                        .item-task.item-column Ambients
+                    #testitem.item 
+                        .item-id.item-column 1
+                        .item-display.item-column Ron 
+                        .item-first-name.item-column Ron
+                        .item-last-name.item-column What
+                        .item-shift.item-column Second
+                        .item-days-off.item-column Wednesday;Thursday
+                        .item-task.item-column Produce
+                    #testitem.item 
+                        .item-id.item-column 2
+                        .item-display.item-column Ornery 
+                        .item-first-name.item-column Ornery
+                        .item-last-name.item-column What
+                        .item-shift.item-column First
+                        .item-days-off.item-column Sunday;Monday
+                        .item-task.item-column Culling

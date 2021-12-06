@@ -1,0 +1,51 @@
+body {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1f1f1f;
+  color: #c8c8c8;
+  font-size: 20px;
+}
+
+body .container {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'users' 'days';
+  gap: 5px;
+}
+
+body .container #users-button {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: users;
+  text-align: center;
+}
+
+body .container #days-button {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: days;
+  text-align: center;
+}
+
+body .container .button {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.1), inset -2px -2px 2px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.1), inset -2px -2px 2px rgba(0, 0, 0, 0.2), 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+/*# sourceMappingURL=admin.css.map */
