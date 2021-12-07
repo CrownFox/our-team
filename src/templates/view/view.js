@@ -12,17 +12,19 @@ function start()
     $.getJSON('/users', function(data)
     {
         console.log(data)
-        $.each(data, function(username, userdata)
+        $.each(data, function(index, userData)
         {
-            $.get(`/users/byName/${username}`, (data) =>
+            console.log(userData)
+            $.get(`/users/byID/${userData.id}`, (data) =>
             {
+                console.log(data)
                 if (data)
                 {
-                    if (userdata.shift == 'First')
+                    if (userData.shift == 'First')
                     {
                         $('.first-shift').append(data.html)
                     }
-                    else if (userdata.shift == 'Second')
+                    else if (userData.shift == 'Second')
                     {
                         $('.second-shift').append(data.html)
                     } 

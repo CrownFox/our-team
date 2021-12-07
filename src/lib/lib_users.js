@@ -1,43 +1,56 @@
 var express = require('express')
 var user = express.Router()
 var pug = require('pug')
-
 var template = {
     user: pug.compileFile(path.join(__dirname, '../templates/users/users.pug'))
 }
 
-var users = {
-    'Kassidy': {
-        name: 'Kassidy',
-        task: 'Carts/Cull\nFill Ambients',
-        timestart: '4:00 AM',
-        timeend: '1:00 PM',
-        shift: 'First',
-        off: ['Sunday', 'Monday']
-    },
-    'Ron':{
-        name: 'Ron',
-        task: 'Produce',
-        timestart: '1:00 PM',
-        timeend: '10:00 PM',
-        shift: 'Second',
-        off: ['Wednesday', 'Thursday']
+class users
+{
+    userDB = null
+
+    constructor()
+    {
+        this.route = express.Router()
+
+        this.route.use((req, res, next) => {
+            next()
+        })
+        
+        this.route.get('/', (req, res) => {
+            if (this.userDB)
+            {
+                res.json(this.userDB.data)
+            }
+            else
+            {
+                res.json([])
+            }
+        })
+        
+        this.route.get('/byID/:userID/', (req, res) => {
+            console.log(req.params['userID'])
+            console.log(this.userDB.get.byField('id', req.params['userID']))
+            if (this.userDB.get.byField('id', req.params['userID']))
+            {
+                res.json({
+                    html: template.user(this.userDB.get.byField('id', req.params['userID'])[0])
+                    //html: template.user(__users[req.params['userName']])
+                })
+            }
+            else
+            {
+                res.json({
+
+                })
+            }
+        })
+    }
+
+    setDB(db)
+    {
+        this.userDB = db
     }
 }
 
-user.use(function timeLog(req, res, next) {
-    console.log('Time: ', Date.now())
-    next()
-})
-
-user.get('/', function(req, res) {
-    res.json(users)
-})
-
-user.get('/byName/:userName/', function(req, res) {
-    res.json({
-        html: template.user(users[req.params['userName']])
-    })
-})
-
-module.exports = user
+module.exports = new users()

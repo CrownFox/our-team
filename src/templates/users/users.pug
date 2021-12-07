@@ -1,7 +1,15 @@
 .user
-    .username #{name}
-    .usertask #{task}
+    .username #{display}
+    .usertask #{preferredTask}
     .usertime
-        .timestart #{timestart}
+        .timestart
+            if shift == 'First'
+                | 4:00 AM
+            if shift == 'Second'
+                | 1:00 PM
         .spacer -
-        .timeend #{timeend}
+        .timeend
+            if shift == 'First'
+                | 1:00 PM
+            if shift == 'Second'
+                | 10:00 PM

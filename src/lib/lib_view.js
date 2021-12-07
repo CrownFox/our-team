@@ -8,26 +8,7 @@ var template = {
 
 view.get('/', (req, res) =>
 {
-    data = {
-        first_shift: [
-            {
-                name: 'Kassidy',
-                task: 'Carts/Cull\nFill Ambients',
-                timestart: '4:00 AM',
-                timeend: '1:00 PM'
-            }
-        ],
-        second_shift: [
-            {
-                name: 'Ron',
-                task: 'Produce',
-                timestart: '1:00 PM',
-                timeend: '10:00 PM'
-            }
-        ]
-    }
-
-    res.send(template.view(data))
+    res.send(template.view())
 })
 
 view.get('/style.css', (req, res) =>

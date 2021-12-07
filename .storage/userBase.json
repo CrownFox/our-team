@@ -1,0 +1,1 @@
+{"default":{"id":{"type":"key"},"display":{"type":"field","required":true},"firstName":{"type":"field","required":false},"lastName":{"type":"field","required":false},"shift":{"type":"field","required":true},"daysOff":{"type":"field","required":true},"preferredTask":{"type":"field","required":false}},"db":[]}

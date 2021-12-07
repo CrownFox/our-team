@@ -1,0 +1,1 @@
+{"default":{"username":{"type":"key"},"password":{"type":"field","required":true}},"db":[{"username":"test_username","password":"test_password"}]}

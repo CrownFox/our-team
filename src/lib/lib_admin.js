@@ -3,6 +3,8 @@ var cookieParser = require('cookie-parser')
 var admin = express.Router()
 var pug = require('pug')
 var $ = require('jquery')
+var db = require('./lib_db')
+var admin_users = new db()
 
 var template = {
     root: pug.compileFile(path.join(__dirname, '../templates/admin/admin.pug')),
@@ -12,14 +14,32 @@ var template = {
 
 var sessions = {}
 
+admin_users.create('./.storage/admin.json', {
+    username: {
+        type: 'key'
+    },
+    password: {
+        type: 'field',
+        required: true
+    }
+}, () =>
+{
+    admin_users.add({
+        username: 'test_username',
+        password: 'test_password'
+    })
+
+    admin_users.write((result) =>{})
+})
+
 class session
 {
-    constructor(req, userstring, username)
+    constructor(req, userString, username)
     {
         this.data = {}
 
         this.data['user-agent'] = req.headers['user-agent']
-        this.data['user-string'] = userstring
+        this.data['user-string'] = userString
         this.data['user-name'] = username
     }
 }
@@ -41,11 +61,11 @@ function string2num(string)
 
 function createSession(req, username)
 {
-    var userstring = `${string2num(username)}::${Date.now()}`
+    var userString = `${string2num(username)}::${Date.now()}`
 
-    sessions[userstring] = new session(req, userstring, username)
+    sessions[userString] = new session(req, userString, username)
 
-    return userstring
+    return userString
 }
 
 admin.use(express.json())
@@ -60,12 +80,12 @@ admin.use(function getLogin(req, res, next) {
 
         if (cookies)
         {
-            if (cookies.userstring)
+            if (cookies.userString)
             {
-                if (sessions[cookies.userstring])
+                if (sessions[cookies.userString])
                 {
 
-                    if (sessions[cookies.userstring].data['user-agent'] == req.headers['user-agent'])
+                    if (sessions[cookies.userString].data['user-agent'] == req.headers['user-agent'])
                     {
                         next()
                         return
@@ -100,7 +120,7 @@ admin.get('/admin.js', (req, res) =>
 admin.get('/users', (req, res) =>
 {
     cookies = req.cookies
-    res.send(template.users({username: sessions[req.cookies.userstring].data['user-name']}))
+    res.send(template.users({username: sessions[req.cookies.userString].data['user-name']}))
 })
 
 admin.get('/users/style.css', (req, res) =>
@@ -111,7 +131,7 @@ admin.get('/users/style.css', (req, res) =>
 admin.get('/logout', (req, res) =>
 {
     cookies = req.cookies
-    delete sessions[cookies.userstring]
+    delete sessions[cookies.userString]
 
     res.redirect('/admin')
 })
@@ -124,12 +144,13 @@ admin.post('/login', (req, res) =>
         {
             if (req.body.password)
             {
-                if (req.body.username == 'test')
+                var matches = admin_users.get.byField('username', req.body.username)
+                if (matches.length)
                 {
-                    if (req.body.password == 'test')
+                    if (matches[0].password == req.body.password)
                     {
-                        userstring = createSession(req, req.body.username)
-                        res.cookie('userstring', userstring)
+                        userString = createSession(req, req.body.username)
+                        res.cookie('userString', userString)
 
                         res.json({
                             success: true
@@ -176,4 +197,4 @@ admin.post('/login', (req, res) =>
     }
 })
 
-module.exports = admin
+module.exports = {route: admin, users: admin_users}

@@ -1,12 +1,3 @@
-mixin user(data)
-    .user
-        .username #{data.name}
-        .usertask #{data.task}
-        .usertime
-            .timestart #{data.timestart}
-            .spacer -
-            .timeend #{data.timeend}
-
 html
     head 
         title Our Team
@@ -17,9 +8,5 @@ html
         .content 
             .shift.first-shift
                 .title First Shift
-                //each val in data.first_shift 
-                    +user(val)
             .shift.second-shift
                 .title Second Shift
-                //each val in data.second_shift
-                    +user(val)
